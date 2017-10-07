@@ -1,0 +1,34 @@
+mathuser dir :
+
+gcc main.c -> #include error
+
+gcc -I ../include/ main.c
+->/tmp/ccJBBytJ.o: In function `main':
+main.c:(.text+0x1e): undefined reference to `add'
+collect2: error: ld returned 1 exit status
+
+gcc -c -I ../include/ main.c
+->main.c  main.c~  main.o
+
+
+gcc -I ../include/ main.c ../libmath/math.c
+->created exe
+
+------------------------
+
+created preintresult.c and .h
+
+gcc -I ../include/  main.c  printresult.c ../libmath/math.c
+
+------------------------
+
+makefile created.
+
+make
+make clean
+
+-------------------------
+
+if we change the sequence of targets (clean, mathuser)
+make -> make clean
+make mathuser -> creating exe etc
